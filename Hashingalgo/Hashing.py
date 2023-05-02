@@ -1,5 +1,5 @@
 # just to be clear, this is NOT an actual hashing algorithm, far from it, 
-# this was written to simply demonstrate how hashing works
+# this was writen to simply demonstrate how hashing works
 # Real hashing algorithms are far more complicated than this
 def hashpassword(password):
     l = len(password)
