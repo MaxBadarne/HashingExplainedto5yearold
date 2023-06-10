@@ -2,8 +2,8 @@
 #connect myssql
 # This was created to simply demonstrate how passwords would use a hashing
 # algorithm and then store the password safely in a database, and how the password can be verified 
-import pymssql     # I used microsoft sql database here, but you settings can be easly changed to fit the type of database youre using 
-import Hashingalgo.Hashing
+import pymssql     # I used microsoft sql database here, but you settings can be easly changed to fit the type of database youre using
+import Hashing
 
 
 #change the database settings here
@@ -32,7 +32,7 @@ def createuser():
 	id = getlastid() +1
 	name = input("put a new name")
 	passwordb4hash = input("input password retard")
-	password = Hashingalgo.Hashing.hashpassword(passwordb4hash)
+	password = Hashing.hashpassword(passwordb4hash)
 	insertquery ="INSERT INTO [dbo].[Users] " + "([ID] ,[Name] ,[Password]) " + "VALUES ( "+ str(id) + """,'""" + name + """','""" + str(password) + "')"
 	insertuser = conn.cursor()
 	insertuser.execute(insertquery)														
@@ -45,7 +45,7 @@ def checkpassword( idnum , currentpass ):			    #herechange
 	row.execute(query)
 	idtupel = row.fetchone()
 	actualpassword = idtupel[0]
-	currentpasshashed = Hashingalgo.Hashing.hashpassword(currentpass)
+	currentpasshashed = Hashing.hashpassword(currentpass)
 	currentpasshashed = str(currentpasshashed)
 	print(actualpassword)     #debug
 	print(currentpasshashed)	#debug
