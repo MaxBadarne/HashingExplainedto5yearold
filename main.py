@@ -18,4 +18,19 @@ sqldb.checkpassword( idnum= 1 , currentpass="Iloveashley" )
 #               11149784805523827
 # to the database to check if it is the same and returns true or false
 
+# Hashes get more and more complicated, adding new steps to the hasing algorithm
+# taking the hashed number and turning into a hexadedecimal would be a good start
+# *Using a real life but outdated hashing algorthm from the hashlib*
+hashedlevel1 = hash("test")
+print(hashedlevel1)
+# prints            -69210052664837847
+hashedlevel2 = hex(hash(hashedlevel1))
+print(hashedlevel2)
+# prints            0x2d9d101740746680
+hashedlevel3 = hash(hashedlevel2.split("x")[1])
+print(hashedlevel3)
+#prints             4252262274784329667
 
+# as we can see by adding a few steps, the password "test" was converted to 4252262274784329667
+# if we add a few more complex steps to this, it would take some time for a good mathematician to figure out the hash
+# Hashes are not made to be "reversed", from 4252262274784329667 we shouldnt be able to get "test"
